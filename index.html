@@ -1,243 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridge Trainer App - GitHub Server Test</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <head>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+  </head>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-
-        .status {
-            background: #f0f9ff;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .status-title {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .status-text {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .features {
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .features h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            color: #666;
-            padding: 8px 0;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-list li:before {
-            content: "✓";
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        .button-group {
-            margin-top: 30px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-
-        .footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 12px;
-        }
-
-        .api-test {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .api-test h4 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        #apiResponse {
-            background: white;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            color: #333;
-            max-height: 150px;
-            overflow-y: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🌉 Bridge Trainer App</h1>
-        <p class="subtitle">GitHub Server Test Page</p>
-
-        <div class="status">
-            <div class="status-title">✓ GitHub Server Connection</div>
-            <div class="status-text">Successfully serving from GitHub! This page is being hosted on GitHub Pages.</div>
-        </div>
-
-        <div class="features">
-            <h3>Features</h3>
-            <ul class="feature-list">
-                <li>Real-time bridge training scenarios</li>
-                <li>Interactive learning modules</li>
-                <li>Progress tracking and analytics</li>
-                <li>GitHub-hosted deployment</li>
-            </ul>
-        </div>
-
-        <div class="api-test">
-            <h4>API Connection Test</h4>
-            <button class="btn-secondary" onclick="testConnection()">Test Connection</button>
-            <div id="apiResponse"></div>
-        </div>
-
-        <div class="button-group">
-            <button class="btn-primary" onclick="startApp()">Start Training</button>
-            <button class="btn-secondary" onclick="viewDocs()">Documentation</button>
-        </div>
-
-        <div class="footer">
-            <p>Bridge Trainer App © 2026 | Hosted on GitHub Pages</p>
-            <p>Repository: <a href="https://github.com/AviBergerGit/BridgeTrainerApp" style="color: #667eea; text-decoration: none;">AviBergerGit/BridgeTrainerApp</a></p>
-        </div>
-    </div>
-
-    <script>
-        function startApp() {
-            alert('Bridge Trainer App starting...\nRedirecting to main application.');
-            // Redirect to your actual app path when ready
-            // window.location.href = './app/index.html';
-        }
-
-        function viewDocs() {
-            alert('Opening documentation...');
-            // Redirect to documentation when ready
-            // window.location.href = './docs/README.html';
-        }
-
-        function testConnection() {
-            const responseDiv = document.getElementById('apiResponse');
-            responseDiv.innerHTML = '<span style="color: #667eea;">Testing connection...</span>';
-
-            // Simulate API test
-            setTimeout(() => {
-                const timestamp = new Date().toISOString();
-                const response = {
-                    status: 'connected',
-                    timestamp: timestamp,
-                    repository: 'AviBergerGit/BridgeTrainerApp',
-                    message: 'GitHub server connection successful'
-                };
-                responseDiv.innerHTML = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-            }, 500);
-        }
-
-        // Log on page load
-        console.log('Bridge Trainer App - GitHub Server Test Page Loaded');
-        console.log('Repository: AviBergerGit/BridgeTrainerApp');
-        console.log('Timestamp:', new Date().toISOString());
-    </script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+      src="./foo.js"
+    ></script>
+    <script
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+      src="./index.js"
+    ></script>
+  </body>
 </html>
