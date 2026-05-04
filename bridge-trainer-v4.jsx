@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-export default () => <div>BridgeTrainer</div>;
 
 // ─── Bridge Leads Engine ─────────────────────────────────────────────────────
 
