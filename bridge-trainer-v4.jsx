@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+const { useState, useEffect } = React;
 
 // ─── Bridge Leads Engine ─────────────────────────────────────────────────────
 
