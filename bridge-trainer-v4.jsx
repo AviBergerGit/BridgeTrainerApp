@@ -1,5 +1,6 @@
 const { useState, useEffect } = React;
 
+
 // ─── Bridge Leads Engine ─────────────────────────────────────────────────────
 
 const LEAD_SUITS  = ['♠', '♥', '♦', '♣'];
@@ -1679,7 +1680,7 @@ function LeadsScreen({ onBack, onAnswer }) {
 
 // ─── App ─────────────────────────────────────────────────────────────────────
 
-export default function BridgeTrainer() {
+function BridgeTrainer() {
   const [screen, setScreen] = useState("home");
   const [activeModule, setActiveModule] = useState(null);
   const [stats, setStats] = useState({
@@ -1787,3 +1788,6 @@ export default function BridgeTrainer() {
     </div>
   );
 }
+
+
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(BridgeTrainer));
