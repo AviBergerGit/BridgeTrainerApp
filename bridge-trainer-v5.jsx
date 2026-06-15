@@ -555,7 +555,21 @@ const QUESTION_BANKS = {
     { type:"count", contract:"3NT by South", lead:"♠7", dealer:"East", auction:["Pass","1NT","Pass","3NT","Pass","Pass","Pass"], dummy:{spades:"Q43",hearts:"KJ5",diamonds:"AQ97",clubs:"K85"}, hand:{spades:"AKJ1072",hearts:"63",diamonds:"854",clubs:"Q9"}, partnerCard:"♠5", partnerSignalMeaning:"LOW card = ODD count (1 or 3 spades)", question:"You (West) lead ♠7 (4th best from ♠AKJ1072). Dummy plays ♠Q! Partner plays ♠5. You have 6 spades, Dummy has 3. Partner ♠5 from ♠985 = low = odd = 3 spades. How many spades does declarer hold?", options:["1 spade","2 spades","3 spades","4 spades"], correct:"1 spade", explanation:"Partner plays ♠5 from ♠985 = lowest = odd = 3 spades. You have 6 (♠AKJ1072), Dummy has 3 (♠Q43). 6+3+3=12, Declarer=1 ✓. A 1NT opener with 1 spade (1-4-4-4 or similar) is completely normal. Declarer has 1 spade.", points:15 },
     { type:"count", contract:"4♠ by South", lead:"♥A", dealer:"North", auction:["1♣","1♠","Pass","4♠","Pass","Pass","Pass"], dummy:{spades:"KJ82",hearts:"Q3",diamonds:"AKQ5",clubs:"743"}, hand:{spades:"74",hearts:"AK9652",diamonds:"J83",clubs:"Q5"}, partnerCard:"♥4", partnerSignalMeaning:"LOW card = ODD count (1 or 3 hearts)", question:"You (West) lead ♥A from ♥AK9652. Partner plays ♥4. You have 6, Dummy has 2. ♥4 = lowest = odd = 1 or 3. How many hearts does declarer hold?", options:["1 heart","2 hearts","3 hearts","4 hearts"], correct:"2 hearts", explanation:"Partner's ♥4 = lowest = odd = 1 or 3. You have 6 (♥AK9652), Dummy has 2 (♥Q3). If partner has 3: 6+2+3=11, Declarer=2 ✓. If partner has 1: 6+2+1=9, Declarer=4. South overcalled 1♠ (5+ spades). With 5 spades and 4 hearts South would have opened 1♥. 2 hearts for declarer fits a 5-2-4-2 hand.", points:15 },
   ],
-
+  "bidding-forcing": [
+    { type:"bidding", auction:["1♦","Pass","1♠","Pass","2♥"], position:"South", question:"East's rebid is 2♥. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"This is a Reverse. South opened a lower-ranking suit (Diamonds) and rebid a higher-ranking suit (Hearts) at the 2-level. A reverse promises 17+ HCP and is forcing for one round.", points:15 },
+    { type:"bidding", auction:["1♣","Pass","1♦"], position:"North", question:"Partner opened 1♣ and you respond 1♦. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"Yes, a simple 1-level response to a 1-level opening (like 1♣ - 1♦) is a forcing bid for one round in SAYC. The opener cannot pass and must make another bid.", points:15 },
+    { type:"bidding", auction:["1♠","Pass","2♠"], position:"North", question:"Partner opened 1♠ and you raise to 2♠. Is this a forcing bid?", options:["Yes","No"], correct:"No", explanation:"A simple jump raise to 2♠ is generally not forcing; it shows support but the opener can pass if they are at a minimum.", points:15 },
+    { type:"bidding", auction:["1NT","Pass","2NT"], position:"North", question:"Partner opened 1NT and you respond 2NT. Is this a forcing bid?", options:["Yes","No"], correct:"No", explanation:"A 2NT response to 1NT is invitational. It is not a 'force' because the opener can pass with a minimum (15 HCP) or bid 3NT with a maximum (17 HCP).", points:15 },
+    { type:"bidding", auction:["1♠","Pass","1♥","Pass","2♦"], position:"South", question:"East opened 1♠, West responded 1♥, and now South rebids 2♦. Is this a forcing bid?", options:["Yes","No"], correct:"No", explanation:"This is a simple rebid of a new suit at the 2-level, and the suit (Diamonds) is lower than the first suit (Spades). This is not a reverse and is not forcing.", points:15 },
+    { type:"bidding", auction:["2♥ (Weak 2)","Pass","2NT"], position:"North", question:"Partner opened a weak 2♥ and you respond 2NT. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"A 2NT response to a weak two opening is a forcing inquiry, asking the opener to further describe their hand (e.g., show a feature or bid their minimum/maximum).", points:15 },
+    { type:"bidding", auction:["2♣"], position:"North", question:"Partner opened 2♣. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"A strong 2♣ opening bid is the most forcing bid in bridge. It requires a response from the partner regardless of their hand strength, typically starting with a 2♦ response to show a hand with no major suit length.", points:15 },
+    { type:"bidding", auction:["1♣","Pass","1♥","Pass","1♠","Pass","2♦"], position:"North", question:"The auction is 1♣-1♥-1♠. You are the responder and you now bid 2♦. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"This is a Fourth Suit Forcing bid. When the responder bids a new suit (the fourth suit to appear in the auction) after the opener's rebid, it is forcing for one round, asking the opener to further describe their hand.", points:15 },
+    { type:"bidding", auction:["2♥", "pass", "2♠"], position:"North", question:"Partner opened a weak 2♥ and you respond 2♠. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"Yes, a new suit bid at the 2-level in response to a weak two opening is forcing for one round. This is a 'feature ask', requesting the opener to show a specific high honor in their suit or a stopper in a new suit.", points:15 },
+    { type:"bidding", auction:["1♠", "Pass", "4♠", "Pass", "4NT"], position:"North", question:"The auction has reached a game in 4♠. You now bid 4NT to ask for key cards. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"Yes, 4NT (Roman Key Card Blackwood) is absolutely forcing. When used to ask for key cards, the partner must respond to show their key card and ace holdings.", points:15 },
+    { type:"bidding", auction:["1♠", "Pass", "4♦"], position:"North", question:"Partner opened 1♠ and you jump to 4♦ as a splinter bid. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"Yes, a splinter bid is a game-forcing jump. It shows a singleton or void in the suit bid (diamonds) and game-forcing values with support for partner's suit. It requires a response from the partner.", points:15 },
+    { type:"bidding", auction:["1♣", "Pass", "1♥", "Pass", "1NT","Pass", "2♠"], position:"North", question:"The auction is 1♣-1♥-1NT. You now bid 2♠. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"Yes, this is a responder's reverse. Having responded 1♥ and then bidding a higher-ranking suit (Spades) at the 2-level is a forcing bid that shows game-forcing values (typically 13+ HCP).", points:15 },
+    { type:"bidding", auction:["1♥", "1♠", "2♦"], position:"North", question:"Partner opened 1♥ and RHO overcalled 1♠. You respond with a free bid of 2♦. Is this a forcing bid?", options:["Yes","No"], correct:"Yes", explanation:"Yes, a free bid at the 2-level (a new suit) in a competitive auction shows 9+ HCP and is forcing for one round, requiring the opener to describe their hand further.", points:15 },
+  ],
 };
 
 const MODULES = [
@@ -720,6 +734,14 @@ const MODULES = [
     refLink: "https://www.bridgebum.com/count_signal.php",
     refLabel: "Count Signals — BridgeBum",
   },
+  {
+    id: "bidding-forcing",
+    type: "bidding",
+    title: "Is it a Forcing Bid?",
+    description: "Determine if a bid is forcing and understand why.",
+    totalQuestions: 13,
+    refLabel: "SAYC System — BridgeBum",
+  },
 
 ];
 
@@ -730,6 +752,7 @@ const SUIT_COLORS  = { spades: "#1a1a2e", hearts: "#c0392b", diamonds: "#c0392b"
 const difficultyColor = (d) => ({ Beginner: "#27ae60", Intermediate: "#f39c12", Advanced: "#e74c3c" }[d] || "#888");
 
 function Hand({ cards }) {
+  if (!cards) return null;
   return (
     <div>
       {Object.entries(cards).map(([suit, holding]) => (
@@ -1783,7 +1806,7 @@ function BridgeTrainer() {
           </a>
           {screen === "home" && (
             <div style={{ marginTop: 6, fontSize: 10, color: "#bbb", letterSpacing: 1 }}>
-              v3.0.0
+              v3.1.0
             </div>
           )}
         </div>
